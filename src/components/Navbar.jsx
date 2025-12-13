@@ -1,55 +1,158 @@
-import { useState } from "react";
-import Sidebar from "./Sidebar";
-
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  const navItems = [
+    { name: "Projects", path: "/projects" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+  ];
+
+  // Detect scroll
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Lock body scroll on mobile menu open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    return () => (document.body.style.overflow = "unset");
+  }, [isOpen]);
 
   return (
-    <header className="flex justify-between items-center px-6 py-4 border-b border-b-gray-200 bg-white fixed w-full z-50">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-black border-b border-white/10"
+          : "bg-black/90 border-b border-white/5"
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold text-white">
+          PORTFOLIO<span className="text-blue-400">.</span>
+        </Link>
 
-         <div className="flex items-center gap-2">
-        {/* image logo */}
-        <img
-          src="/fred.jpg" 
-          alt="My Portfolio Logo"
-          className="w-7 h-7 rounded-md object-cover "
-        />
-        <span className="font-semibold text-gray-800 text-lg">Anas Fred</span>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-8">
+          {navItems.map((item) => (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`text-sm font-medium transition-colors ${location.pathname === item.path
+                  ? "text-white"
+                  : "text-gray-400 hover:text-white"
+                }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden text-white text-2xl"
+          onClick={() => setIsOpen(true)}
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
       </div>
 
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/80 z-40 md:hidden"
+              onClick={() => setIsOpen(false)}
+            />
 
-      {/* Desktop Nav */}
-      <nav className="hidden md:flex gap-8 text-gray-600 items-center">
-        <a href="/" className="hover:text-indigo-600">Home</a>
-        <a href="/about" className="hover:text-indigo-600">About</a>
-        <a href="/projects" className="hover:text-indigo-600">Projects</a>
-        <a href="/contact" className="hover:text-indigo-600">Contact</a>
-     
-        <a
-  href="/contact"
-  className="flex items-center justify-center gap-2 bg-indigo-600 text-white px-4 py-2 text-sm rounded-md hover:bg-indigo-700 transition-colors"
->
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="14"
-    height="14"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M23 17c0 3.31-2.69 6-6 6v-1.5c2.5 0 4.5-2 4.5-4.5zM1 7c0-3.31 2.69-6 6-6v1.5c-2.5 0-4.5 2-4.5 4.5zm7-2.68l-4.59 4.6c-3.22 3.22-3.22 8.45 0 11.67s8.45 3.22 11.67 0l7.07-7.09c.49-.47.49-1.26 0-1.75a1.25 1.25 0 0 0-1.77 0l-4.42 4.42l-.71-.71l6.54-6.54c.49-.49.49-1.28 0-1.77s-1.29-.49-1.79 0L14.19 13l-.69-.73l6.87-6.89c.49-.49.49-1.28 0-1.77s-1.28-.49-1.77 0l-6.89 6.89l-.71-.7l5.5-5.48c.5-.49.5-1.28 0-1.77s-1.28-.49-1.77 0l-7.62 7.62a4 4 0 0 1-.33 5.28l-.71-.71a3 3 0 0 0 0-4.24l-.35-.35l4.07-4.07c.49-.49.49-1.28 0-1.77c-.5-.48-1.29-.48-1.79.01"/>
-  </svg>
-  Get In Touch
-</a>
-      </nav>
-      
+            {/* Menu Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 bottom-0 w-[85%] max-w-sm bg-black z-50 md:hidden"
+            >
+              <div className="flex flex-col h-full px-6">
+                {/* Header: Logo + Close Icon */}
+                <div className="flex items-center justify-between pt-10 pb-6">
+                  <Link
+                    to="/"
+                    onClick={() => setIsOpen(false)}
+                    className="text-2xl font-bold text-white"
+                  >
+                    PORTFOLIO<span className="text-blue-400">.</span>
+                  </Link>
 
-      {/* Mobile Menu Button */}
-      <button className="md:hidden text-2xl text-gray-700" onClick={() => setIsOpen(!isOpen)}>
-        ☰
-      </button>
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close menu"
+                    className="text-white text-3xl hover:text-blue-400 transition-colors"
+                  >
+                    ×
+                  </button>
+                </div>
 
-      {isOpen && <Sidebar setIsOpen={setIsOpen} />}
-    </header>
+                {/* Links */}
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className={`text-2xl font-bold mb-6 ${location.pathname === "/"
+                      ? "text-blue-400"
+                      : "text-gray-300 hover:text-blue-400"
+                    }`}
+                >
+                  Home
+                </Link>
+
+                {navItems.map((item) => (
+                  <Link
+                    key={item.name}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-2xl font-bold mb-6 ${location.pathname === item.path
+                        ? "text-blue-400"
+                        : "text-gray-300 hover:text-blue-400"
+                      }`}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+
+                {/* CTA */}
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-10 py-4 text-center bg-white/10 hover:bg-white/20 rounded-xl text-white font-bold"
+                >
+                  Get in Touch
+                </Link>
+
+                {/* Footer */}
+                <p className="mt-auto mb-6 text-xs text-gray-500 text-center">
+                  © 2024 Portfolio
+                </p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 }

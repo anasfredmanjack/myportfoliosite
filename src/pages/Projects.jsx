@@ -1,49 +1,72 @@
 import { useState } from "react";
-import FilterBar from "../components/FilterBar";
+import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
-
-const allProjects = [
-  {
-    title: "AI Customer Service Chatbot",
-    description: "A conversational AI for automated support and queries.",
-    tags: ["Python", "LangChain", "React"],
-    category: "AI/Automation",
-    image: "https://placehold.co/600x400",
-    demo: "#",
-    code: "#",
-  },
-  {
-    title: "E-commerce Platform",
-    description: "A bespoke store with a custom CMS built for scalability.",
-    tags: ["Next.js", "Node.js", "PostgreSQL"],
-    category: "Fullstack",
-    image: "https://placehold.co/600x400",
-    demo: "#",
-    code: "#",
-  }
-];
+import Canvas3D from "../components/Canvas3D";
+import { projects } from "../data/projects";
 
 export default function Projects() {
   const [selected, setSelected] = useState("All");
 
-  const categories = [...new Set(allProjects.map((p) => p.category))];
+  const categories = ["All", ...new Set(projects.map((p) => p.category))];
   const filtered =
     selected === "All"
-      ? allProjects
-      : allProjects.filter((p) => p.category === selected);
+      ? projects
+      : projects.filter((p) => p.category === selected);
 
   return (
-    <section className="pt-32 pb-20 px-6 bg-gray-50 min-h-screen">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Selected Projects</h2>
-      <p className="text-gray-600 text-center mb-8">A collection of fullstack and AI-powered solutions.</p>
+    <div className="min-h-screen relative overflow-hidden">
+      <Canvas3D />
 
-      <FilterBar categories={categories} selected={selected} onSelect={setSelected} />
+      {/* Background Gradient similar to Home */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent opacity-50 blur-3xl pointer-events-none" />
 
-      <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        {filtered.map((project, index) => (
-          <ProjectCard key={index} project={project} />
-        ))}
-      </div>
-    </section>
+      <section className="pt-32 pb-20 px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-4 px-4 py-1.5 rounded-full border border-neon-blue/30 bg-neon-blue/10 backdrop-blur-md">
+            <span className="text-neon-blue text-sm font-mono tracking-wider uppercase">My Work</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
+            Selected Works
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            A showcase of digital products, experiments, and open source libraries.
+          </p>
+        </motion.div>
+
+        {/* Filter Bar */}
+        <div className="flex justify-center flex-wrap gap-4 mb-16">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelected(category)}
+              className={`px-6 py-2 rounded-full text-sm font-mono tracking-wider transition-all duration-300 border ${selected === category
+                  ? "bg-neon-blue text-black border-neon-blue font-bold shadow-[0_0_20px_rgba(0,243,255,0.4)]"
+                  : "bg-white/5 text-gray-400 border-white/10 hover:border-white/30 hover:text-white"
+                }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {filtered.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
