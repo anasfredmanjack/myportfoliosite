@@ -38,64 +38,109 @@ function createAdminEmailTemplate({ name, email, subject, message }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>New Contact Message</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); color: #ffffff;">
-      <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
-        
-        <!-- Header -->
-        <div style="background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 50%, #ff0055 100%); padding: 2px;">
-          <div style="background: #0a0a0a; padding: 32px; text-align: center;">
-            <h1 style="margin: 0; font-size: 28px; font-weight: bold; background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 50%, #ff0055 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
-              ⚡ New Contact Signal Received
-            </h1>
-            <p style="margin: 8px 0 0 0; color: #888; font-size: 14px;">Portfolio Contact System</p>
-          </div>
-        </div>
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0a0a0a; color: #ffffff;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #0a0a0a; padding: 20px 0;">
+        <tr>
+          <td align="center">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #1a1a2e; border-radius: 24px; overflow: hidden;">
+              
+              <!-- Header -->
+              <tr>
+                <td style="background-color: #00f3ff; padding: 2px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #0a0a0a; padding: 32px; text-align: center;">
+                        <h1 style="margin: 0; font-size: 28px; font-weight: bold; color: #00f3ff;">
+                          ⚡ New Contact Signal Received
+                        </h1>
+                        <p style="margin: 8px 0 0 0; color: #aaaaaa; font-size: 14px;">Portfolio Contact System</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
 
-        <!-- Content -->
-        <div style="padding: 32px;">
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-            <h2 style="margin: 0 0 20px 0; color: #00f3ff; font-size: 20px; font-weight: 600;">Contact Details</h2>
-            
-            <div style="margin-bottom: 16px;">
-              <span style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Name</span>
-              <p style="margin: 4px 0 0 0; color: #ffffff; font-size: 16px; font-weight: 500;">${name}</p>
-            </div>
+              <!-- Content -->
+              <tr>
+                <td style="padding: 32px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #1a1a2e; border: 1px solid #333333; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+                        <h2 style="margin: 0 0 20px 0; color: #00f3ff; font-size: 20px; font-weight: 600;">Contact Details</h2>
+                        
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 16px;">
+                          <tr>
+                            <td>
+                              <span style="color: #aaaaaa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Name</span>
+                              <p style="margin: 4px 0 0 0; color: #ffffff; font-size: 16px; font-weight: 500;">${name}</p>
+                            </td>
+                          </tr>
+                        </table>
 
-            <div style="margin-bottom: 16px;">
-              <span style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Email</span>
-              <p style="margin: 4px 0 0 0; color: #00f3ff; font-size: 16px; font-weight: 500;">${email}</p>
-            </div>
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 16px;">
+                          <tr>
+                            <td>
+                              <span style="color: #aaaaaa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Email</span>
+                              <p style="margin: 4px 0 0 0; color: #00f3ff; font-size: 16px; font-weight: 500;">${email}</p>
+                            </td>
+                          </tr>
+                        </table>
 
-            ${subject ? `
-            <div style="margin-bottom: 16px;">
-              <span style="color: #888; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Subject</span>
-              <p style="margin: 4px 0 0 0; color: #bc13fe; font-size: 16px; font-weight: 500;">${subject}</p>
-            </div>
-            ` : ''}
-          </div>
+                        ${subject ? `
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 16px;">
+                          <tr>
+                            <td>
+                              <span style="color: #aaaaaa; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Subject</span>
+                              <p style="margin: 4px 0 0 0; color: #bc13fe; font-size: 16px; font-weight: 500;">${subject}</p>
+                            </td>
+                          </tr>
+                        </table>
+                        ` : ''}
+                      </td>
+                    </tr>
+                  </table>
 
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 24px;">
-            <h3 style="margin: 0 0 16px 0; color: #ff0055; font-size: 18px; font-weight: 600;">Message</h3>
-            <div style="background: rgba(0, 0, 0, 0.3); border-radius: 12px; padding: 20px; border-left: 4px solid #00f3ff;">
-              <p style="margin: 0; color: #ffffff; line-height: 1.6; font-size: 15px; white-space: pre-wrap;">${message}</p>
-            </div>
-          </div>
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #1a1a2e; border: 1px solid #333333; border-radius: 16px; padding: 24px;">
+                        <h3 style="margin: 0 0 16px 0; color: #ff0055; font-size: 18px; font-weight: 600;">Message</h3>
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td style="background-color: #0a0a0a; border-radius: 12px; padding: 20px; border-left: 4px solid #00f3ff;">
+                              <p style="margin: 0; color: #ffffff; line-height: 1.6; font-size: 15px; white-space: pre-wrap;">${message}</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-          <!-- Action Button -->
-          <div style="text-align: center; margin-top: 32px;">
-            <a href="mailto:${email}" style="display: inline-block; background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 100%); color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 16px; transition: all 0.3s ease;">
-              Reply to ${name} →
-            </a>
-          </div>
-        </div>
+                  <!-- Action Button -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td align="center" style="padding-top: 32px;">
+                        <a href="mailto:${email}" style="display: inline-block; background-color: #00f3ff; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 12px; font-weight: 600; font-size: 16px;">
+                          Reply to ${name} →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
 
-        <!-- Footer -->
-        <div style="background: rgba(255, 255, 255, 0.02); padding: 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-          <p style="margin: 0; color: #666; font-size: 12px;">
-            🚀 Transmitted via Portfolio Contact System • ${new Date().toLocaleString()}
-          </p>
-        </div>
-      </div>
+              <!-- Footer -->
+              <tr>
+                <td style="background-color: #0a0a0a; padding: 20px; text-align: center; border-top: 1px solid #333333;">
+                  <p style="margin: 0; color: #aaaaaa; font-size: 12px;">
+                    🚀 Transmitted via Portfolio Contact System • ${new Date().toLocaleString()}
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
     </body>
     </html>
   `;
@@ -110,78 +155,141 @@ function createUserEmailTemplate({ name, subject, production }) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Message Received</title>
     </head>
-    <body style="margin: 0; padding: 0; font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); color: #ffffff;">
-      <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);">
-        
-        <!-- Header -->
-        <div style="background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 50%, #ff0055 100%); padding: 2px;">
-          <div style="background: #0a0a0a; padding: 32px; text-align: center;">
-            <h1 style="margin: 0; font-size: 28px; font-weight: bold; background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 50%, #ff0055 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
-              ✨ Transmission Confirmed
-            </h1>
-            <p style="margin: 8px 0 0 0; color: #888; font-size: 14px;">Portfolio Contact System</p>
-          </div>
-        </div>
+    <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #0a0a0a; color: #ffffff;">
+      <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color: #0a0a0a; padding: 20px 0;">
+        <tr>
+          <td align="center">
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="max-width: 600px; background-color: #1a1a2e; border-radius: 24px; overflow: hidden;">
+              
+              <!-- Header -->
+              <tr>
+                <td style="background-color: #00f3ff; padding: 2px;">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #0a0a0a; padding: 32px; text-align: center;">
+                        <h1 style="margin: 0; font-size: 28px; font-weight: bold; color: #00f3ff;">
+                          ✨ Transmission Confirmed
+                        </h1>
+                        <p style="margin: 8px 0 0 0; color: #aaaaaa; font-size: 14px;">Portfolio Contact System</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
 
-        <!-- Content -->
-        <div style="padding: 32px;">
-          <div style="text-align: center; margin-bottom: 32px;">
-            <div style="width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, #00f3ff 0%, #bc13fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px;">
-              🚀
-            </div>
-            <h2 style="margin: 0 0 16px 0; color: #ffffff; font-size: 24px; font-weight: 600;">Hi ${name}!</h2>
-            <p style="margin: 0; color: #888; font-size: 16px; line-height: 1.6;">
-              Your message has been successfully transmitted through my portfolio contact system.
-            </p>
-          </div>
+              <!-- Content -->
+              <tr>
+                <td style="padding: 32px;">
+                  <!-- Success Icon and Greeting -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td align="center" style="padding-bottom: 32px;">
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+                          <tr>
+                            <td style="width: 80px; height: 80px; background-color: #00f3ff; border-radius: 50%; text-align: center; vertical-align: middle; font-size: 32px; line-height: 80px;">
+                              🚀
+                            </td>
+                          </tr>
+                        </table>
+                        <h2 style="margin: 20px 0 16px 0; color: #ffffff; font-size: 24px; font-weight: 600;">Hi ${name}!</h2>
+                        <p style="margin: 0; color: #aaaaaa; font-size: 16px; line-height: 1.6;">
+                          Your message has been successfully transmitted through my portfolio contact system.
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
 
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 24px; margin-bottom: 24px;">
-            <h3 style="margin: 0 0 16px 0; color: #00f3ff; font-size: 18px; font-weight: 600;">What happens next?</h3>
-            <div style="space-y: 12px;">
-              <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                <span style="color: #bc13fe; margin-right: 12px; font-size: 18px;">⚡</span>
-                <span style="color: #ffffff; font-size: 15px;">I'll review your message within 24 hours</span>
-              </div>
-              <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                <span style="color: #ff0055; margin-right: 12px; font-size: 18px;">🎯</span>
-                <span style="color: #ffffff; font-size: 15px;">You'll receive a personalized response</span>
-              </div>
-              <div style="display: flex; align-items: center;">
-                <span style="color: #00f3ff; margin-right: 12px; font-size: 18px;">🚀</span>
-                <span style="color: #ffffff; font-size: 15px;">Let's discuss your project or opportunity</span>
-              </div>
-            </div>
-          </div>
+                  <!-- What Happens Next Card -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #1a1a2e; border: 1px solid #333333; border-radius: 16px; padding: 24px; margin-bottom: 24px;">
+                        <h3 style="margin: 0 0 16px 0; color: #00f3ff; font-size: 18px; font-weight: 600;">What happens next?</h3>
+                        
+                        <!-- Timeline Item 1 -->
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 12px;">
+                          <tr>
+                            <td width="40" valign="top" style="padding-right: 12px;">
+                              <span style="color: #bc13fe; font-size: 18px;">⚡</span>
+                            </td>
+                            <td valign="middle">
+                              <span style="color: #ffffff; font-size: 15px;">I'll review your message within 24 hours</span>
+                            </td>
+                          </tr>
+                        </table>
 
-          ${subject ? `
-          <div style="background: rgba(0, 243, 255, 0.1); border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
-            <p style="margin: 0; color: #00f3ff; font-size: 14px; font-weight: 500;">
-              📋 Subject: ${subject}
-            </p>
-          </div>
-          ` : ''}
+                        <!-- Timeline Item 2 -->
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom: 12px;">
+                          <tr>
+                            <td width="40" valign="top" style="padding-right: 12px;">
+                              <span style="color: #ff0055; font-size: 18px;">🎯</span>
+                            </td>
+                            <td valign="middle">
+                              <span style="color: #ffffff; font-size: 15px;">You'll receive a personalized response</span>
+                            </td>
+                          </tr>
+                        </table>
 
-          <div style="text-align: center; margin-top: 32px;">
-            <p style="margin: 0 0 20px 0; color: #888; font-size: 14px;">
-              In the meantime, feel free to explore my work
-            </p>
-            <a href="${production.url}" style="display: inline-block; background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 100%); color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 14px;">
-              View Portfolio →
-            </a>
-          </div>
-        </div>
+                        <!-- Timeline Item 3 -->
+                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                          <tr>
+                            <td width="40" valign="top" style="padding-right: 12px;">
+                              <span style="color: #00f3ff; font-size: 18px;">🚀</span>
+                            </td>
+                            <td valign="middle">
+                              <span style="color: #ffffff; font-size: 15px;">Let's discuss your project or opportunity</span>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
 
-        <!-- Footer -->
-        <div style="background: rgba(255, 255, 255, 0.02); padding: 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.1);">
-          <p style="margin: 0 0 8px 0; color: #ffffff; font-size: 16px; font-weight: 600;">
-            Best regards,<br>
-            <span style="background: linear-gradient(90deg, #00f3ff 0%, #bc13fe 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">Anas Fred</span>
-          </p>
-          <p style="margin: 0; color: #666; font-size: 12px;">
-            🌟 Portfolio Contact System • ${new Date().toLocaleString()}
-          </p>
-        </div>
-      </div>
+                  ${subject ? `
+                  <!-- Subject Card -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td style="background-color: #0a1a2e; border: 1px solid #00f3ff; border-radius: 12px; padding: 16px; margin-bottom: 24px;">
+                        <p style="margin: 0; color: #00f3ff; font-size: 14px; font-weight: 500;">
+                          📋 Subject: ${subject}
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                  ` : ''}
+
+                  <!-- CTA Button -->
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                    <tr>
+                      <td align="center" style="padding-top: 32px;">
+                        <p style="margin: 0 0 20px 0; color: #aaaaaa; font-size: 14px;">
+                          In the meantime, feel free to explore my work
+                        </p>
+                        <a href="${production.url}" style="display: inline-block; background-color: #00f3ff; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 12px; font-weight: 600; font-size: 14px;">
+                          View Portfolio →
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+
+              <!-- Footer -->
+              <tr>
+                <td style="background-color: #0a0a0a; padding: 20px; text-align: center; border-top: 1px solid #333333;">
+                  <p style="margin: 0 0 8px 0; color: #ffffff; font-size: 16px; font-weight: 600;">
+                    Best regards,<br>
+                    <span style="color: #00f3ff; font-weight: 700;">Anas Fred</span>
+                  </p>
+                  <p style="margin: 0; color: #aaaaaa; font-size: 12px;">
+                    🌟 Portfolio Contact System • ${new Date().toLocaleString()}
+                  </p>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
     </body>
     </html>
   `;
