@@ -23,12 +23,20 @@ export default function Contact() {
         const toastId = toast.loading('Transmitting...');
 
         try {
-            await axios.post('/api/contact', formData);
+            const response = await axios.post('/api/contact', formData, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
             toast.success('Transmission received!', { id: toastId });
             setFormData({ name: '', email: '', subject: '', message: '' });
         } catch (error) {
-            console.error(error);
-            toast.error('Transmission failed.', { id: toastId });
+            console.error('Contact form error:', error);
+            const errorMessage = error.response?.data?.message || 
+                               error.response?.data?.error || 
+                               error.message || 
+                               'Transmission failed. Please try again.';
+            toast.error(errorMessage, { id: toastId, duration: 5000 });
         } finally {
             setLoading(false);
         }

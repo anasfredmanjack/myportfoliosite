@@ -15,25 +15,25 @@ export default function Home() {
    const testimonials = [
       {
          id: 1,
-         name: "Sarah Jenkins",
+         name: "Olugbenga David",
          role: "CEO, TechFlow",
          text: "Anas transformed our outdated platform into a cutting-edge digital experience. His eye for design is unmatched."
       },
       {
          id: 2,
-         name: "David Chen",
-         role: "Founder, StartUp X",
-         text: "The 3D interactions and smooth animations significantly increased our user engagement. Highly recommended!"
+         name: "Durdy H2O",
+         role: "Founder, H2O",
+         text: "Anas is disciplined, dependable, and always ahead, chasing the next big opportunity."
       },
       {
          id: 3,
-         name: "Elena Rodriguez",
-         role: "Product Manager",
+         name: "Elena Gideon",
+         role: "Founder, KyrosDoxa",
          text: "Professional, creative, and technically brilliant. Anas delivered beyond our expectations."
       }
    ];
 
-   const partners = ["TechCorp", "Innova", "FutureSystems", "WebScale", "DesignHub"];
+   const partners = ["KyrosDoxa", "Reclaimed", "FutureSystems", "WebScale", "DesignHub"];
 
    return (
       <div className="overflow-hidden relative ">
@@ -55,18 +55,25 @@ export default function Home() {
                   <span className="text-neon-blue text-sm font-mono tracking-wider uppercase">Available for freelance work</span>
                </div>
 
-               <h2 className="text-gray-300 font-mono text-lg md:text-xl tracking-widest mb-6 uppercase">
-                  Creative Developer | Anas Fred
+              <h2 className="text-gray-300 font-mono text-lg md:text-xl tracking-widest mb-6 uppercase">
+               Anas Fred | Creative Developer & Problem Solver
                </h2>
-               <h1 className="text-6xl md:text-9xl font-bold mb-8 tracking-tighter leading-tight">
-                  CRAFTING <br />
+               <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tighter leading-tight">
+               SOLVING <br />
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-purple animate-pulse-glow">
+                   DIGITAL <small>PROBLEMS</small>
+               </span>
+               <br />
+               <small>FOR </small>
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-white to-neon-purple animate-pulse-glow">
-                     DIGITAL RELICS
-                  </span>
+                   BUSINESSES
+               </span>
+               
                </h1>
                <p className="text-gray-400 max-w-2xl mx-auto mb-12 text-lg md:text-xl leading-relaxed">
-                  I build immersive web experiences that blend art, code, and interactive design to tell compelling stories.
+               I help businesses transform digital challenges into simple, engaging experiences that inspire and connect with people, driving real results.
                </p>
+
 
                <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
                   <Link
@@ -119,7 +126,7 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                         <div className="absolute bottom-6 left-6">
                            <p className="text-white font-mono text-sm">Based in</p>
-                           <p className="text-2xl font-bold">New York City, USA</p>
+                           <p className="text-2xl font-bold">Abuja, Nigeria</p>
                         </div>
                      </div>
                   </motion.div>
@@ -136,7 +143,7 @@ export default function Home() {
                         <span className="text-gray-500">Artist by heart.</span>
                      </h3>
                      <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-                        I'm Anas Fred, a passionate developer focused on creating interactive digital experiences. With a background in both design and engineering, I bridge the gap between aesthetics and functionality.
+                        I'm Anas Fred, a passionate developer focused on creating interactive digital experiences. With a background in both design and engineering, I bridge the gap between aesthetics and functionality, thereby creating engaging solutions, tailored to your brand.
                      </p>
                      <div className="grid grid-cols-2 gap-6 mb-10">
                         <div className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
@@ -147,7 +154,7 @@ export default function Home() {
                         <div className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm hover:bg-white/10 transition-colors">
                            <Layers className="text-neon-purple mb-2" />
                            <h4 className="font-bold mb-1">Modern Stack</h4>
-                           <p className="text-xs text-gray-500">React, Node, 3D</p>
+                           <p className="text-xs text-gray-500">React, Node, Tailwind, N8N</p>
                         </div>
                      </div>
 

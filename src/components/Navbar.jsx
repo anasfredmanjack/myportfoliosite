@@ -39,7 +39,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-white">
-          PORTFOLIO<span className="text-blue-400">.</span>
+          ANAS FRED<span className="text-blue-400">.</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -97,7 +97,7 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className="text-2xl font-bold text-white"
                   >
-                    PORTFOLIO<span className="text-blue-400">.</span>
+                    ANAS FRED<span className="text-blue-400">.</span>
                   </Link>
 
                   <button
@@ -146,7 +146,7 @@ export default function Navbar() {
 
                 {/* Footer */}
                 <p className="mt-auto mb-6 text-xs text-gray-500 text-center">
-                  © 2024 Portfolio
+                  © Anas Fred. All Rights Reserved.
                 </p>
               </div>
             </motion.div>

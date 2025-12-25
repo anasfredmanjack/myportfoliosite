@@ -9,14 +9,14 @@ export default function About() {
       items: [
         { name: "Python", level: 95 },
         { name: "JavaScript / TypeScript", level: 90 },
-        { name: "Go", level: 75 },
+        { name: "PHP", level: 75 },
       ],
     },
     {
       category: "AI & Automation",
       icon: Cpu,
       items: [
-        { name: "LangChain / LLMs", level: 90 },
+        { name: "N8N", level: 90 },
         { name: "OpenAI API", level: 85 },
         { name: "TensorFlow / PyTorch", level: 75 },
       ],
@@ -27,16 +27,16 @@ export default function About() {
       items: [
         { name: "React / Next.js", level: 95 },
         { name: "Node.js / Express", level: 90 },
-        { name: "Django / FastAPI", level: 80 },
+        { name: "Bootstrap", level: 80 },
       ],
     },
     {
       category: "Infrastructure",
       icon: Database,
       items: [
-        { name: "PostgreSQL / MongoDB", level: 90 },
-        { name: "Docker / Kubernetes", level: 85 },
-        { name: "AWS / GCP", level: 80 },
+        { name: "MySQL / MongoDB", level: 90 },
+        { name: "Vercel", level: 85 },
+        { name: "Render / Namecheap", level: 80 },
       ],
     },
   ];

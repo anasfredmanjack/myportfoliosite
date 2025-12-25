@@ -10,10 +10,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="text-2xl font-bold tracking-tighter">
-              PORTFOLIO<span className="text-neon-blue">.</span>
+              ANAS FRED<span className="text-neon-blue">.</span>
             </h3>
             <p className="text-gray-400 text-sm max-w-xs">
-              Crafting immersive digital experiences with modern technologies and creative design.
+              I help businesses transform digital challenges into simple, engaging experiences.
             </p>
           </div>
 
@@ -31,16 +31,16 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-white font-bold">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
+              <a href="https://github.com/anasfredmanjack" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
                 <Github size={20} className="text-gray-400 group-hover:text-white" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
+              <a href="https://www.linkedin.com/in/anas-fred" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
                 <Linkedin size={20} className="text-gray-400 group-hover:text-white" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
+              <a href="https://x.com/anasfred_" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
                 <Twitter size={20} className="text-gray-400 group-hover:text-white" />
               </a>
-              <a href="mailto:hello@example.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
+              <a href="mailto:anasfredmanjack@gmail.com" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-blue hover:text-white transition-all duration-300 group">
                 <Mail size={20} className="text-gray-400 group-hover:text-white" />
               </a>
             </div>
@@ -48,9 +48,9 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-          <p>© 2024 Anas Fred. All Rights Reserved.</p>
+          <p>© Anas Fred. All Rights Reserved.</p>
           <p className="flex items-center gap-1">
-            Built with <Heart size={14} className="text-red-500 fill-red-500" /> and React
+            Built with <Heart size={14} className="text-red-500 fill-red-500" />
           </p>
         </div>
       </div>
